@@ -5,7 +5,7 @@ from string import ascii_lowercase
 def words(text):
     return re.findall(r'(?:[a-z]+[a-z\'\-]?[a-z]|[a-z]+)', text.lower())
 
-def candidate_words(word):
+def alternate_words(word):
     lst=[]
     for i in ascii_lowercase:
         for j in range(len(word)+1):  #inserting extra character
@@ -23,15 +23,15 @@ def valueOf(word):
     return Vocabulary[word]
 
 def spelled_word(word):
-    suggestions = set(candidate_words(word)).intersection(set(Vocabulary))
-    if len(suggestions)>0:
+    suggestions = set(alternate_words(word)).intersection(set(Vocabulary))
+    if len(suggestions) > 0:
         maxScoreWord = max(suggestions, key = valueOf)
-        return sorted([w for w in suggestions if Vocabulary[w] == Vocabulary[maxScoreWord]])[0]
+        return sorted([i for i in suggestions if Vocabulary[w] == Vocabulary[maxScoreWord]])[0]
     return (word)
 
 Vocabulary = Counter(words(open('corpus.txt').read()))
 for i in range(int(input())):
-    word=input().strip().lower()
+    word = input().strip().lower()
     if word in Vocabulary:
         output = word
     else:
