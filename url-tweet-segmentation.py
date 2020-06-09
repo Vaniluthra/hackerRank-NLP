@@ -8,7 +8,7 @@
 #    load()
 #    print(str(segment(a)))
 #seg('#isittime')
-#https://github.com/narendraprasath/Word-Segmentation-in-NLP-Python/blob/master/Segmentation.py
+#alternate solution without wordsegment library
 from __future__ import with_statement #with statement for reading file
 import re   # Regular expression
 
