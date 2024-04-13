@@ -26,7 +26,7 @@ def spelled_word(word):
     suggestions = set(alternate_words(word)).intersection(set(Vocabulary))
     if len(suggestions) > 0:
         maxScoreWord = max(suggestions, key = valueOf)
-        return sorted([i for i in suggestions if Vocabulary[w] == Vocabulary[maxScoreWord]])[0]
+        return sorted([i for i in suggestions if Vocabulary[i] == Vocabulary[maxScoreWord]])[0]
     return (word)
 
 Vocabulary = Counter(words(open('corpus.txt').read()))
